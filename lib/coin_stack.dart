@@ -1,5 +1,4 @@
+
 class CoinStack {
-  final int coins;
-
+  final coins;
 }
-
