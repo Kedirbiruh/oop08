@@ -1,4 +1,4 @@
-import '...lib/coin_stack.dart';
+import '../lib/coin_stack.dart'; 
 void main() {
   // CoinStacks erstellen
   final stack1 = CoinStack([1, 2, 5]);
