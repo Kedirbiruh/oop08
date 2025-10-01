@@ -6,7 +6,7 @@ void main() {
   final stack2 = CoinStack([5, 1]);
   final stack3 = CoinStack([2, 5]);
   final stack4 = CoinStack([10]);
-  final emptyStack = CoinStack([]);
+  // final emptyStack = CoinStack([]);
 
   // totalValue prüfen
   print('Stack1 totalValue: ${stack1.totalValue}');

@@ -20,6 +20,7 @@ class CoinStack {
   bool operator ==(Object other) =>
       other is CoinStack && this.totalValue == other.totalValue;
 
+  @override
   CoinStack operator +(CoinStack other) {
     final newStack = CoinStack(_coins + other._coins);
     return newStack;
