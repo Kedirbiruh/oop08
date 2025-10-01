@@ -5,8 +5,8 @@ class CoinStack {
 
   int get totalValue {
     int sum = 0;
-    for (var coin in _coins) {
-      sum += _coin;
+    for (final coin in _coins) {
+      sum += coin;
     }
     return sum;
   }
@@ -15,8 +15,23 @@ class CoinStack {
   bool operator <(CoinStack other) => this.totalValue < other.totalValue;
   bool operator >=(CoinStack other) => this.totalValue >= other.totalValue;
   bool operator <=(CoinStack other) => this.totalValue <= other.totalValue;
-  bool operator ==( other) =>
+  bool operator ==(Object other) =>
       other is CoinStack && this.totalValue == other.totalValue;
 
-  this CoinStack + (other CoinStack) => CoinStack([_coins, other._coins]);
+  CoinStack operator +(CoinStack other) {
+    final newStack = CoinStack(_coins + other._coins);
+    return newStack;
+  }
+
+  CoinStack? operator -(CoinStack other) {
+    final newCoins = [..._coins];
+    for (final coin in other._coins) {
+      if (newCoins.contains(coin)) {
+        newCoins.remove(coin);
+      } else {
+        return null;
+      }
+    }
+    return CoinStack(newCoins);
+  }
 }
