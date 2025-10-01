@@ -26,6 +26,9 @@ class CoinStack {
     return newStack;
   }
 
+  @override
+  int get hashCode => totalValue.hashCode;
+
   CoinStack? operator -(CoinStack other) {
     final newCoins = [..._coins];
     for (final coin in other._coins) {
