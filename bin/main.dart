@@ -1,3 +1,5 @@
+import '../lib/coin_stack.dart';
+
 void main() {
   // CoinStacks erstellen
   final stack1 = CoinStack([1, 2, 5]);
@@ -7,33 +9,33 @@ void main() {
   final emptyStack = CoinStack([]);
 
   // totalValue prüfen
-  print('Stack1 totalValue: ${stack1.totalValue}'); // 8
-  print('Stack2 totalValue: ${stack2.totalValue}'); // 6
+  print('Stack1 totalValue: ${stack1.totalValue}');
+  print('Stack2 totalValue: ${stack2.totalValue}');
 
   // Vergleichsoperatoren
-  print('stack1 > stack2: ${stack1 > stack2}');   // true
-  print('stack1 < stack2: ${stack1 < stack2}');   // false
-  print('stack1 >= stack2: ${stack1 >= stack2}'); // true
-  print('stack1 <= stack2: ${stack1 <= stack2}'); // false
-  print('stack1 == stack2: ${stack1 == stack2}'); // false
+  print('stack1 > stack2: ${stack1 > stack2}'); 
+  print('stack1 < stack2: ${stack1 < stack2}');  
+  print('stack1 >= stack2: ${stack1 >= stack2}');
+  print('stack1 <= stack2: ${stack1 <= stack2}'); 
+  print('stack1 == stack2: ${stack1 == stack2}'); 
 
   // + Operator
   final combined = stack1 + stack2;
-  print('Combined coins: ${combined._coins}');        // [1,2,5,5,1]
-  print('Combined totalValue: ${combined.totalValue}'); // 14
+  print('Combined coins: ${combined.coins}');       
+  print('Combined totalValue: ${combined.totalValue}');
 
   // - Operator
   final result = stack1 - stack3;
   if (result != null) {
-    print('stack1 - stack3: ${result._coins}'); // [1]
+    print('stack1 - stack3: ${result.coins}');
   } else {
     print('Subtraktion nicht möglich');
   }
 
   final result2 = stack1 - stack4;
-  print('stack1 - stack4: $result2'); // null
+  print('stack1 - stack4: $result2'); 
 
   // Edge Case: Subtraktion, die alle Münzen entfernt
   final fullSubtract = stack1 - CoinStack([1, 2, 5]);
-  print('Full subtraction: ${fullSubtract?._coins}'); // []
+  print('Full subtraction: ${fullSubtract?.coins}'); 
 }

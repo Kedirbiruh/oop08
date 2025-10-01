@@ -3,6 +3,8 @@ class CoinStack {
 
   CoinStack(this._coins);
 
+  List<int> get coins => List.unmodifiable(_coins);
+
   int get totalValue {
     int sum = 0;
     for (final coin in _coins) {
