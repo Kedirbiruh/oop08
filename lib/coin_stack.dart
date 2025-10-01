@@ -5,14 +5,18 @@ class CoinStack {
   // normaler Konstruktor: erstellt eine Kopie, damit die Original-Liste nicht verändert werden kann
   CoinStack(List<int> coins) : _coins = List.from(coins);
 
+  // Öffentlicher Getter (read-only)
+  List<int> get coins => List.unmodifiable(_coins);
+
   // bennante konstruktor
-  CoinStack.from(CoinStack other)
-    : _coins = List.from(
-        other._coins,
-      ); //erstellt eine Kopie von einem anderen CoinStack
+  // CoinStack.from(CoinStack other)
+  //   : _coins = List.from(
+  //       other._coins,
+  //     );
+
+  //erstellt eine Kopie von einem anderen CoinStack
   // totalValue Berechnung
   int get totalValue => _coins.fold(0, (sum, coin) => sum + coin);
-  List<int> get coins => List.unmodifiable(_coins);
 
   // int get totalValue {
   //   int sum = 0;
@@ -27,7 +31,7 @@ class CoinStack {
   bool operator >=(CoinStack other) => this.totalValue >= other.totalValue;
   bool operator <=(CoinStack other) => this.totalValue <= other.totalValue;
 
-  @override
+  @override // Ich überschreibe die Methode == aus der Elternklasse Object
   bool operator ==(Object other) =>
       other is CoinStack && totalValue == other.totalValue;
 
